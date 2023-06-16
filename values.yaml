@@ -35,4 +35,3 @@ ingress-control:
       service:
         annotations:
           service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
-  email: youremail@example.com
