@@ -22,7 +22,7 @@ questions:
   - variable: ingress-control.ingress-nginx.controller.service.annotations."service.beta.kubernetes.io/azure-dns-label-name"
     default: jupyterhub
     label: Ingress Hostname
-    description: The hostname of the ingress resource. Your deployment will be published to <INGRESS_HOSTNAME>.anvilcloud.rcac.purdue.edu
+    description: The hostname of the ingress resource. Your deployment will be published to <INGRESS_HOSTNAME>.southcentralus.cloudapp.azure.com
     min_length: 4
     type: string
     required: true
