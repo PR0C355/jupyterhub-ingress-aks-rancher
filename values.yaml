@@ -23,6 +23,9 @@ jupyterhub:
         authenticator_class: dummy
 
 ingress:
+  enabled: true
+  serviceName: proxy-public
+  servicePortNumber: 80
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 
