@@ -31,7 +31,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 
-ingress-control:
+network:
   ingress-nginx:
     controller:
       service:

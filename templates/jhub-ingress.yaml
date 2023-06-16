@@ -16,7 +16,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: {{ index .Values.ingress-control.ingress-nginx.controller.service.annotations."service.beta.kubernetes.io/azure-dns-label-name" }}.southcentralus.cloudapp.azure.com
+    - host: {{ index .Values.network "ingress-nginx.controller.service.annotations" "service.beta.kubernetes.io/azure-dns-label-name" }}.southcentralus.cloudapp.azure.com
       {{- with .Values.ingress }}
       http:
         paths:
