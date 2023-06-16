@@ -33,3 +33,4 @@ dependencies:
 
 annotations:
   catalog.cattle.io/display-name: JupyterHub w/ Ingress - AKS
+  catalog.cattle.io/os: linux
