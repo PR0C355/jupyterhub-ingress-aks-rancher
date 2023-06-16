@@ -34,4 +34,5 @@ ingress-control:
     controller:
       service:
         annotations:
+          service.beta.kubernetes.io/azure-dns-label-name: "jupyterhub"
           service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
