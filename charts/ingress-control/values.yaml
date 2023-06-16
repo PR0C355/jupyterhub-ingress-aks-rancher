@@ -1,0 +1,21 @@
+# Default values for jupyterhub-ingress-anvil.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+cert-manager:
+  installCRDs: true
+  nodeSelector:
+    kubernetes.io/os: linux
+  image:
+    repository: quay.io/jetstack/cert-manager-controller
+    tag: v1.8.0 
+  webhook:
+    image:
+      repository: quay.io/jetstack/cert-manager-webhook 
+      tag: v1.8.0 
+  cainjector:
+    image:
+      repository: quay.io/jetstack/cert-manager-cainjector 
+      tag: v1.8.0
+
+email: ooguntol@purdue.edu

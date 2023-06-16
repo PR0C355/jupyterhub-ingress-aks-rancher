@@ -1,0 +1,31 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  {{- if .Values.ingress.annotations }}
+  annotations: 
+  {{- range $key, $value := .Values.ingress.annotations}}
+    {{ $key }}: {{ $value }}
+  {{- end }}
+  name: {{ default "jhub-ingress" .Values.ingress.name }}
+  {{- if .Values.ingress.labels }}
+  labels:
+    {{- .Values.ingress.labels | toYaml | nindent 4}}
+  {{- end }}
+
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.ingress-control.ingress-nginx.controller.service.annotations."service.beta.kubernetes.io/azure-dns-label-name" }}.southcentralus.cloudapp.azure.com
+      {{- with .Values.ingress }}
+      http:
+        paths:
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: {{ .serviceName }}
+                port:
+                  number: {{ .servicePortNumber }}
+    {{- end }}
+{{- end }}

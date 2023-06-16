@@ -1,0 +1,9 @@
+dependencies:
+- name: jupyterhub
+  repository: https://jupyterhub.github.io/helm-chart/
+  version: 2.0.0
+- name: ingress-control
+  repository: file://charts/ingress-control
+  version: 1.0.0
+digest: sha256:6b260d347f11027b559eab5f4a099c3e9fed6eaa73f88aa7b8d216a399cc8b0a
+generated: "2023-06-14T10:31:36.008245-04:00"

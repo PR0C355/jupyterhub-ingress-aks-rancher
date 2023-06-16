@@ -1,0 +1,51 @@
+categories: 
+- Ingress
+- JupyterHub Environment
+- Authentication
+questions:
+- variable: ingress.enabled
+  default: false
+  label: Enable Ingress
+  description: "Enable the Ingress Resource"
+  required: true
+  type: boolean
+  group: Ingress
+  subquestions: 
+  - variable: ingress.name
+    default: jhub-ingress
+    label: Ingress Resource Name
+    description: The name of the ingress resource
+    type: string
+    group: Ingress
+    show_if: "ingress.enabled=true"
+
+  - variable: ingress-control.ingress-nginx.controller.service.annotations."service.beta.kubernetes.io/azure-dns-label-name"
+    default: jupyterhub
+    label: Ingress Hostname
+    description: The hostname of the ingress resource. Your deployment will be published to <INGRESS_HOSTNAME>.anvilcloud.rcac.purdue.edu
+    min_length: 4
+    type: string
+    required: true
+    group: Ingress
+    show_if: "ingress.enabled=true"
+
+  - variable: ingress.path
+    default: /
+    label: Rule Path
+    description: The path for this Rule in the Ingress resource
+    required: true
+    type: string
+    group: Ingress
+    show_if: "ingress.enabled=true"
+
+  - variable: ingress.pathType
+    default: Prefix
+    label: Path Type
+    description: Determines how the Ingress controller matches the incoming request's URL path to the backend service
+    required: true
+    type: enum
+    options:
+      - "Prefix"
+      - "Exact"
+    group: Ingress
+    show_if: "ingress.enabled=true"
