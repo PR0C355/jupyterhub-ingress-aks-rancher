@@ -2,7 +2,6 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  {{- if .Values.ingress.annotations }}
   annotations: 
   {{- range $key, $value := .Values.ingress.annotations}}
     {{ $key }}: {{ $value }}
@@ -16,7 +15,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: {{ index .Values.network "ingress-nginx.controller.service.annotations" "service.beta.kubernetes.io/azure-dns-label-name" }}.southcentralus.cloudapp.azure.com
+    - host: {{ index .Values "ingress-control" "ingress-nginx" "controller" "service" "annotations" "service.beta.kubernetes.io/azure-dns-label-name" }}.southcentralus.cloudapp.azure.com
       {{- with .Values.ingress }}
       http:
         paths:
@@ -27,5 +26,5 @@ spec:
                 name: {{ .serviceName }}
                 port:
                   number: {{ .servicePortNumber }}
-    {{- end }}
+      {{- end }}
 {{- end }}

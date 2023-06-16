@@ -27,7 +27,7 @@ dependencies:
 - name: jupyterhub
   version: "2.0.0"
   repository: "https://jupyterhub.github.io/helm-chart/"
-- name: network
+- name: ingress-control
   version: "1.0.0"
   repository: "file://charts/ingress-control"
 
