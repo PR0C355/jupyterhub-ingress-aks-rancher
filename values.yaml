@@ -23,11 +23,6 @@ jupyterhub:
         authenticator_class: dummy
 
 ingress:
-  enabled: true
-  path: /
-  pathType: Prefix
-  serviceName: proxy-public
-  servicePortNumber: 80
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 
@@ -36,8 +31,5 @@ ingress-control:
     controller:
       service:
         annotations:
-          "service.beta.kubernetes.io/azure-dns-label-name": "xdmod"
           service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
-
-global:
-  email: ooguntol@purdue.edu
+  email: youremail@example.com

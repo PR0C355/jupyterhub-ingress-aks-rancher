@@ -1,7 +1,5 @@
 categories: 
 - Ingress
-- JupyterHub Environment
-- Authentication
 questions:
 - variable: ingress.enabled
   default: false
@@ -47,5 +45,13 @@ questions:
     options:
       - "Prefix"
       - "Exact"
+    group: Ingress
+    show_if: "ingress.enabled=true"
+  
+  - variable: ingress-control.email
+    label: Email
+    description: Used for access to the domain
+    required: true
+    type: string
     group: Ingress
     show_if: "ingress.enabled=true"

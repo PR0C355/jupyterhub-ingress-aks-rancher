@@ -18,4 +18,4 @@ cert-manager:
       repository: quay.io/jetstack/cert-manager-cainjector 
       tag: v1.8.0
 
-email: ooguntol@purdue.edu
+email: youremail@example.com
