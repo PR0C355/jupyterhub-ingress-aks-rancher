@@ -24,6 +24,8 @@ jupyterhub:
 
 ingress:
   enabled: true
+  path: /
+  pathType: Prefix
   serviceName: proxy-public
   servicePortNumber: 80
   annotations:
@@ -34,5 +36,5 @@ ingress-control:
     controller:
       service:
         annotations:
-          service.beta.kubernetes.io/azure-dns-label-name: "jupyterhub"
+          service.beta.kubernetes.io/azure-dns-label-name: "hurting"
           service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
